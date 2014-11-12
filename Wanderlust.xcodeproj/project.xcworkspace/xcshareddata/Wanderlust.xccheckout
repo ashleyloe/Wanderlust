@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C6854B5A-3012-4CF7-96B3-C4957FC1844F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Wanderlust</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3B09198423490B2D106B2A0AA81BF8690048416C</key>
+		<string>https://github.com/sessionista/Wanderlust</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Wanderlust.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3B09198423490B2D106B2A0AA81BF8690048416C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/sessionista/Wanderlust</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3B09198423490B2D106B2A0AA81BF8690048416C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3B09198423490B2D106B2A0AA81BF8690048416C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WanderlustGit</string>
+		</dict>
+	</array>
+</dict>
+</plist>
