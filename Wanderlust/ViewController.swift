@@ -30,7 +30,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var mapView: MKMapView!
     
-    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         
         //NOTE:
@@ -47,6 +46,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.setRegion(curRegion, animated: true)
     }
     
+    @IBAction func uploadPic(sender: AnyObject) {
+        println("Button works!")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +74,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         //animated --> Specify YES if you want the map view to animate the transition to the new region or NO if you want the map to center on the specified region immediately
         
         
-        // start updatingg location once the application is loaded
+        // start updating location once the application is loaded
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         self.locationManager.requestWhenInUseAuthorization()
