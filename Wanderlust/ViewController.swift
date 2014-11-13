@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
+import AssetsLibrary
+import Photos
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //NOTE:
     //The CLLocationManagerDelegate protocol defines the methods used to receive location and heading updates from a CLLocationManager object.
@@ -46,8 +48,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.setRegion(curRegion, animated: true)
     }
     
+    //
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!) {
+        self.dismissViewControllerAnimated(true, completion: nil);
+        
+    }
+    
     @IBAction func uploadPic(sender: AnyObject) {
-        println("Button works!")
+        let pickerC = UIImagePickerController()
+        pickerC.delegate = self
+        self.presentViewController(pickerC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -78,9 +88,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         self.locationManager.requestWhenInUseAuthorization()
-        
-        //new for iOS8. We may add a description as to why we would like to add a user's description
-        self.locationManager.stopUpdatingLocation()
         
     }
     
