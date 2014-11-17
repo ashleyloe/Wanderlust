@@ -11,6 +11,7 @@ import MapKit
 import AssetsLibrary
 import Photos
 import CoreLocation
+import AVFoundation
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -51,14 +52,24 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     //
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!) {
         self.dismissViewControllerAnimated(true, completion: nil);
-        
+        //Worry about this later. My head hurts.
     }
+    
     
     @IBAction func uploadPic(sender: AnyObject) {
         let pickerC = UIImagePickerController()
         pickerC.delegate = self
         self.presentViewController(pickerC, animated: true, completion: nil)
     }
+    
+    //Allow use to take a picture.
+    @IBAction func snapPic(sender: AnyObject) {
+        println("This button works.")
+    }
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +99,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         self.locationManager.requestWhenInUseAuthorization()
+        
         
     }
     
