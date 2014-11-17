@@ -49,10 +49,33 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.mapView.setRegion(curRegion, animated: true)
     }
     
+    
     //
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!) {
         self.dismissViewControllerAnimated(true, completion: nil);
-        //Worry about this later. My head hurts.
+        var displayImg: UIImage! = info[UIImagePickerControllerOriginalImage] as UIImage
+        
+        var accessURL: NSURL! = info[UIImagePickerControllerReferenceURL] as NSURL
+        
+        let photoLibrary = ALAssetsLibrary()
+        
+        photoLibrary.assetForURL(accessURL, resultBlock: {
+            (asset: ALAsset!) in
+            if asset != nil {
+                var imgLocation: CLLocation! = asset.valueForProperty(ALAssetPropertyLocation) as CLLocation
+                let annotation = MKPointAnnotation()
+                var anoLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(imgLocation.coordinate.latitude, imgLocation.coordinate.longitude)
+                annotation.setCoordinate(anoLocation)
+                self.mapView.addAnnotation(annotation)
+            }
+            }, failureBlock: {
+                (error: NSError!) in
+                
+                NSLog("Error!")
+            }
+        )
+        
+        //Crashes when a pic doesn't have a location within. Should we use try/except?
     }
     
     
@@ -61,14 +84,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         pickerC.delegate = self
         self.presentViewController(pickerC, animated: true, completion: nil)
     }
-    
-    //Allow use to take a picture.
-    @IBAction func snapPic(sender: AnyObject) {
-        println("This button works.")
-    }
-    
-    
-    
     
     
     override func viewDidLoad() {
